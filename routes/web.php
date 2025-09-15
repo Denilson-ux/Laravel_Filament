@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 
-Route::redirect('/', '/dashboard/login');
+// La ruta principal ahora muestra la vista de bienvenida
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
 // Rutas de registro
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
